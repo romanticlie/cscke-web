@@ -10,12 +10,12 @@ const state = {
 
 const mutations = {
     setUserBase(state,user){
-        if(user.userid != undefined){
-            state.user.userid = user.userid
+        if(user.strid != undefined){
+            state.user['userid'] = user.strid
         }
 
         if(user.base != undefined){
-            state.user.base = user.base
+            state.user['base'] = user.base
         }
     },
     setToken(state,token){

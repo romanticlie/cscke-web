@@ -15,7 +15,7 @@ export default {
     data(){
         return {
             user: {
-                userid: 0,
+                userid: "",
                 base:{
                     nickname: "",
                     avatar: "",

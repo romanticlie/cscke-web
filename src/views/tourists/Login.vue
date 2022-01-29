@@ -2,7 +2,7 @@
     <div class="login-ways">
         <div class="title">选择登录方式</div>
         <div class="logo" @click="intoAuthorizePage()">
-            <img src="@/assets/wechat-logo.jpeg" alt="">
+            <img src="/assets/wechat-logo.jpeg" alt="">
         </div>
     </div>
 </template>

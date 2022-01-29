@@ -1,7 +1,7 @@
 <template>
     <div class="container" @click="startGame(typeDraw)">
         <div class="logo">
-            <img src="/assets/draw.jpeg" >
+            <img src="http://cscke.ginguess.com/assets/draw.jpeg" >
         </div>
         <div class="name">
             你画我猜

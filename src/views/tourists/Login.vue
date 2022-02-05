@@ -1,8 +1,11 @@
 <template>
     <div class="login-ways">
         <div class="title">选择登录方式</div>
-        <div class="logo" @click="intoAuthorizePage()">
-            <img src="http://cscke.ginguess.com/assets/wechat-logo.jpeg" alt="">
+        <div class="logo" @click="wechatAuthorizePage()">
+            <img src="/assets/wechat-logo.jpeg" alt="">
+        </div>
+        <div class="logo" @click="telephoneLogPage()">
+            <img src="/assets/telephone-logo.jpeg" alt="">
         </div>
     </div>
 </template>
@@ -14,10 +17,13 @@ export default {
         return {}
     },
     methods:{
-        intoAuthorizePage(){
+        wechatAuthorizePage(){
             this.$api.authorizedUrl({platform:"wechatweb"}).then(data => {
                 window.location.href = data.authorizedUrl
             })
+        },
+        telephoneLogPage(){
+            this.$router.push({path : "/tourists/teleLog"})
         },
     },
     mounted(){
@@ -30,15 +36,20 @@ export default {
 
 <style scoped>
 .login-ways{
-    width: 200px;
-    height: 185px;
+    width: 400px;
+    height: 200px;
     margin: 100px auto;
-    cursor: pointer;
 }
 
-
+.logo{
+    width: 198px;
+    height: 198px;
+    border: 1px solid #DDDDDD;
+    border-radius: 1px;
+    cursor: pointer;
+    float: left;
+}
 .logo img{
-    border-radius: 10px;
     width: 100%;
 }
 

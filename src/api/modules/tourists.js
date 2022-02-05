@@ -33,5 +33,19 @@ authorizedUrl: data => {
     })
 },
 
-/***** END *****/
+/**
+ * @description 手机号登录
+ * @param {String} tel 授权code 
+ * @param {String} random 验证码
+ * @returns 
+ */
+ telephoneLog: data => {
+    return request({
+        data,
+        url: '/api/tourists/telephone',
+        method: 'post',
+        mock: false
+    })
+},
+
 }

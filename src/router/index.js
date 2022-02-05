@@ -16,31 +16,36 @@ VueRouter.prototype.replace = function (location) {
 Vue.use(VueRouter)
 
 const constantRoutes = [
-  {
-    path: '/',
-    name: 'Index',
-    component: () => import('@/views/index/Index.vue')
-  },
-  {
-    path: '/exception/exc404',
-    name: 'Exc404',
-    component: () => import('@/views/exception/Exc404.vue')
-  },
-  {
-      path: '/tourists/login',
-      name: 'Login',
-      component: () => import('@/views/tourists/Login.vue')
-  },
-  {
-      path: '/notify/authorized',
-      name: 'Notify',
-      component: () => import('@/views/notify/Notify.vue')
-  },
-  {
-    path: '/user/center',
-    name: 'User',
-    component: () => import('@/views/user/Center.vue')
-}
+    {
+        path: '/',
+        name: 'Index',
+        component: () => import('@/views/index/Index.vue')
+    },
+    {
+        path: '/exception/exc404',
+        name: 'Exc404',
+        component: () => import('@/views/exception/Exc404.vue')
+    },
+    {
+        path: '/tourists/login',
+        name: 'Login',
+        component: () => import('@/views/tourists/Login.vue')
+    },
+    {
+        path: '/tourists/teleLog',
+        name: 'TeleLog',
+        component: () => import('@/views/tourists/TeleLog.vue')
+    },
+    {
+        path: '/notify/authorized',
+        name: 'Notify',
+        component: () => import('@/views/notify/Notify.vue')
+    },
+    {
+        path: '/user/center',
+        name: 'UserCenter',
+        component: () => import('@/views/user/Center.vue')
+    }
 ]
 
 

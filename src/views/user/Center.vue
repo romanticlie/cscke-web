@@ -1,20 +1,20 @@
 <template>
     <div class="userinfo">
         <div class="user-item">
-            <label for="userid">用户id：</label>
-            <span id="userid">{{ user.strid }}</span>
+            <label >用户id：</label>
+            <span >{{ user.strid }}</span>
         </div>
         <div class="user-item">
-            <label for="nickname">昵称：</label>
-            <span id="nickname">{{ user.base.nickname }}</span>
+            <label >昵称：</label>
+            <span >{{ user.base.nickname }}</span>
         </div>
         <div class="user-item">
-            <label for="gender">性别：</label>
-            <span id="gender">{{ user.base.gender }}</span>
+            <label >性别：</label>
+            <span >{{ genderMap[user.base.gender] }}</span>
         </div>
         <div class="user-item">
-            <label for="avatar">头像</label>
-            <div id="avatar" class="logo">
+            <label >头像</label>
+            <div class="logo">
                 <img :src="user.base.avatar == '' ? '/assets/default-avatar.jpeg' : user.base.avatar" alt="">
             </div>
         </div>
@@ -22,27 +22,45 @@
 </template>
 
 <script>
+import { mapState,mapGetters,mapMutations } from 'vuex'  
+
 export default {
     name: 'Center',
     data(){
+        let [genderNone,genderMale,genderFemale] = [0,1,2]
         return {
-            user: {
-                userid: "",
-                base:{
-                    nickname: "",
-                    avatar: "",
-                    gender: 0,
-                }
-            }
+            genderMap:{
+                [genderNone]: '暂无',
+                [genderMale]: '男',
+                [genderFemale]: '女',
+            },
         }
     },
+    computed: {
+        ...mapState([
+            'user',
+            'token',
+        ]),
+        ...mapGetters([
+            'isUserInit'
+        ])
+    },
     methods:{
-
+        ...mapMutations([
+            'flushUserBase',
+            'flushToken',
+        ])
     },
     mounted(){
-        let user = this.$store.getters.getUserBase
-        if(user && user != undefined && user.base != undefined){
-            this.user = user
+        
+        //刷新用户信息和token
+        this.flushUserBase()
+        this.flushToken()
+
+        //判断用户信息
+        if(!this.isUserInit){
+             //跳转到登录页面
+            this.$router.push({path : "/tourists/login"})
         }
     }
 }
